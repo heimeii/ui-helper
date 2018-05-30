@@ -7,6 +7,8 @@ chrome.runtime.onInstalled.addListener(function () {
 function active() {
     chrome.tabs.executeScript({
         file: 'insert.js',
-        runAt: 'document_start'
+    });
+    chrome.tabs.executeScript({
+        file: 'insert.css',
     });
 }

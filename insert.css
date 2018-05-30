@@ -1,0 +1,11 @@
+#hxf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 0 1px #ccc;
+    z-index: 9999;
+}
+
+#hxf img {
+    opacity: 0.3;    
+}

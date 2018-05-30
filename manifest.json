@@ -5,7 +5,8 @@
     "permissions": [
         "storage",
         "activeTab",
-        "contextMenus"
+        "contextMenus",
+        "clipboardRead"
     ],
     "background": {
         "scripts": [
@@ -38,5 +39,15 @@
             "description": "active"
         }
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "css": [
+                "insert.css"
+            ]
+        }
+    ],
     "manifest_version": 2
 }
