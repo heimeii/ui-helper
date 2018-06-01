@@ -1,28 +1,25 @@
 document.addEventListener('paste', (e) => {
-    var clipboardData = e.clipboardData;
-    if (!(clipboardData && clipboardData.items)) {//是否有粘贴内容
-        return;
-    }
+    const { clipboardData } = e;
+    
+    Object.keys(clipboardData.items).map((key) => {
+        const item = clipboardData.items[key];
 
-    for (var i = 0, len = clipboardData.items.length; i < len; i++) {
-        var item = clipboardData.items[i];
-        if (item.kind === "string" && item.type == "text/plain") {
-            item.getAsString(function (str) {
-                // str 是获取到的字符串,创建文本框
-                //处理粘贴的文字内容
-            })
-        } else if (item.kind === "file") {//file 一般是各种截图base64数据
-            var pasteFile = item.getAsFile();
-            // pasteFile就是获取到的文件
-            var reader = new FileReader();
-            reader.onload = (event) => {
-                var base64Img = event.target.result;
-                init(base64Img);
-            };
-            reader.readAsDataURL(pasteFile);
+        switch(item.kind) {
+            case 'string':
+                item.getAsString((str) => {
+                    console.log(str);
+                });
+                break;
+            case 'file':
+                const pasteFile = item.getAsFile();
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    init(event.target.result);
+                };
+                reader.readAsDataURL(pasteFile);
+                break;
         }
-        var copy_content = e.clipboardData.getData('text/plain');
-    }
+    });
 });
 
 function init(data) {

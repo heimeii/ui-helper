@@ -5,8 +5,7 @@
     "permissions": [
         "storage",
         "activeTab",
-        "contextMenus",
-        "clipboardRead"
+        "contextMenus"
     ],
     "background": {
         "scripts": [
@@ -23,7 +22,9 @@
             "128": "images/get_started128.png"
         }
     },
-    "chrome_url_overrides": {},
+    "omnibox": {
+        "keyword": "jxj"
+    },
     "icons": {
         "16": "images/get_started16.png",
         "32": "images/get_started32.png",
@@ -33,21 +34,10 @@
     "commands": {
         "active": {
             "suggested_key": {
-                "default": "Ctrl+I",
-                "mac": "Ctrl+I"
+                "default": "Ctrl+Shift+H"
             },
             "description": "active"
         }
     },
-    "content_scripts": [
-        {
-            "matches": [
-                "*://*/*"
-            ],
-            "css": [
-                "insert.css"
-            ]
-        }
-    ],
     "manifest_version": 2
 }
