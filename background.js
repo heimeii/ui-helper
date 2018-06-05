@@ -1,4 +1,10 @@
+let commandMaps;
+
 chrome.runtime.onInstalled.addListener(() => {
+    const importCommand = import('./commandMaps.js');
+    importCommand.then(maps => {
+        commandMaps = maps;
+    });
     addListenerOmnibox();
 
     chrome.commands.onCommand.addListener(function(command) {
@@ -7,16 +13,17 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 function addListenerOmnibox() {
-    const as = import('./commandMaps.js');
-    as.then(item => console.log(item));
+    chrome.omnibox.setDefaultSuggestion({
+        description: 'aaaaaaaa'
+    });
     chrome.omnibox.onInputStarted.addListener(() => {
-        console.log('onInputStarted');
+        
     });
-    chrome.omnibox.onInputChanged.addListener(() => {
-        console.log('onInputChanged');
+    chrome.omnibox.onInputChanged.addListener((text, suggest) => {
+        console.log('onInputChanged', text, suggest);
     });
-    chrome.omnibox.onInputEntered.addListener(() => {
-        console.log('onInputEntered');
+    chrome.omnibox.onInputEntered.addListener((text, disposition) => {
+        console.log('onInputEntered', text, disposition);
     });
 }
 
