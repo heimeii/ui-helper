@@ -1,0 +1,23 @@
+{
+  "name": "ui-helper",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:heimeii/ui-helper.git",
+  "author": "黑眉 <heimei@qunhemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "cssnano": "^3.10.0",
+    "file-loader": "^1.1.11",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-url": "^7.3.2",
+    "prettier": "^1.13.5",
+    "ts-loader": "^4.4.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.12.1"
+  }
+}
